@@ -1,5 +1,5 @@
 
-# Exploring Our Data
+# Modeling Our Data - Lab
 
 ## Introduction 
 
@@ -620,7 +620,7 @@ sum(walmart["Weekly_Sales"]<=0)
 
 
 
-Let's remove these 224 rows so we can take the log
+This seems negligibe considering we have almost 100,000 observations. Let's remove these 224 rows so we can take the log.
 
 
 ```python
@@ -640,21 +640,18 @@ walmart_log["Weekly_Sales"]= np.log(walmart_log["Weekly_Sales"])
       """Entry point for launching an IPython kernel.
 
 
+Let's have another look at the histogram. What do you see?
+
 
 ```python
-walmart_log["Weekly_Sales"].hist()
+walmart_log["Weekly_Sales"].hist();
 ```
 
 
+![png](index_files/index_36_0.png)
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1a1738ed30>
-
-
-
-
-![png](index_files/index_35_1.png)
-
+Now let's repeat what we did before, yet now with the log(Weekly_Sales) as the target.
 
 
 ```python
@@ -674,19 +671,19 @@ for idx, val in enumerate(col_names):
 
     Walmart: Weekly_Sales~Size
     ------------------------------
-    ['Size', 0.13842560369451928, 7.0105699064147915, 0.0003543955481406758, 0.0]
+    ['Size', 0.10780975018477723, 8.671485180985362, 0.6116185906202907, 0.0]
     Walmart: Weekly_Sales~Temperature
     ------------------------------
-    ['Temperature', 0.0013008289800108264, 7.010569906414789, 3.435501531059851e-05, 1.5562756540636607e-29]
+    ['Temperature', 0.0007654996204090603, 8.671603611690772, 0.05156909449730016, 5.340017291124216e-18]
     Walmart: Weekly_Sales~Fuel_Price
     ------------------------------
-    ['Fuel_Price', 0.0009842247688323091, 7.010569906414787, 2.9883206073272025e-05, 9.672971254505951e-23]
+    ['Fuel_Price', 0.0004492812703383864, 8.67161396276943, 0.0394923265697245, 3.517664177544602e-11]
     Walmart: Weekly_Sales~CPI
     ------------------------------
-    ['CPI', 0.04205486723652241, 7.010569906414787, -0.00019533864812340703, 0.0]
+    ['CPI', 0.025949085295408403, 8.671703573822908, -0.30020719745386343, 0.0]
     Walmart: Weekly_Sales~Unemployment
     ------------------------------
-    ['Unemployment', 0.0009194339667438767, 7.010569906414791, 2.8882868074166605e-05, 2.3869265126488507e-21]
+    ['Unemployment', 0.0002769605078790649, 8.671620744194506, 0.03101368076924437, 1.9943786070103981e-07]
 
 
 
@@ -822,42 +819,42 @@ pd.DataFrame(results_log)
     <tr>
       <th>1</th>
       <td>Size</td>
-      <td>0.138426</td>
-      <td>7.01057</td>
-      <td>0.000354396</td>
+      <td>0.10781</td>
+      <td>8.67149</td>
+      <td>0.611619</td>
       <td>0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Temperature</td>
-      <td>0.00130083</td>
-      <td>7.01057</td>
-      <td>3.4355e-05</td>
-      <td>1.55628e-29</td>
+      <td>0.0007655</td>
+      <td>8.6716</td>
+      <td>0.0515691</td>
+      <td>5.34002e-18</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Fuel_Price</td>
-      <td>0.000984225</td>
-      <td>7.01057</td>
-      <td>2.98832e-05</td>
-      <td>9.67297e-23</td>
+      <td>0.000449281</td>
+      <td>8.67161</td>
+      <td>0.0394923</td>
+      <td>3.51766e-11</td>
     </tr>
     <tr>
       <th>4</th>
       <td>CPI</td>
-      <td>0.0420549</td>
-      <td>7.01057</td>
-      <td>-0.000195339</td>
+      <td>0.0259491</td>
+      <td>8.6717</td>
+      <td>-0.300207</td>
       <td>0</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Unemployment</td>
-      <td>0.000919434</td>
-      <td>7.01057</td>
-      <td>2.88829e-05</td>
-      <td>2.38693e-21</td>
+      <td>0.000276961</td>
+      <td>8.67162</td>
+      <td>0.0310137</td>
+      <td>1.99438e-07</td>
     </tr>
   </tbody>
 </table>
@@ -896,7 +893,7 @@ for col in cols:
     Model:                            OLS   Adj. R-squared:                  0.123
     Method:                 Least Squares   F-statistic:                     1519.
     Date:                Wed, 17 Oct 2018   Prob (F-statistic):               0.00
-    Time:                        04:35:32   Log-Likelihood:            -1.1243e+06
+    Time:                        05:34:22   Log-Likelihood:            -1.1243e+06
     No. Observations:               97839   AIC:                         2.249e+06
     Df Residuals:                   97829   BIC:                         2.249e+06
     Df Model:                           9                                         
@@ -929,7 +926,7 @@ for col in cols:
     Model:                            OLS   Adj. R-squared:                  0.503
     Method:                 Least Squares   F-statistic:                     1269.
     Date:                Wed, 17 Oct 2018   Prob (F-statistic):               0.00
-    Time:                        04:35:33   Log-Likelihood:            -1.0965e+06
+    Time:                        05:34:23   Log-Likelihood:            -1.0965e+06
     No. Observations:               97839   AIC:                         2.193e+06
     Df Residuals:                   97760   BIC:                         2.194e+06
     Df Model:                          78                                         
@@ -1031,7 +1028,7 @@ for col in cols:
     Model:                            OLS   Adj. R-squared:                  0.050
     Method:                 Least Squares   F-statistic:                     5097.
     Date:                Wed, 17 Oct 2018   Prob (F-statistic):               0.00
-    Time:                        04:35:33   Log-Likelihood:            -1.1282e+06
+    Time:                        05:34:23   Log-Likelihood:            -1.1282e+06
     No. Observations:               97839   AIC:                         2.256e+06
     Df Residuals:                   97837   BIC:                         2.257e+06
     Df Model:                           1                                         
@@ -1056,7 +1053,7 @@ for col in cols:
     Model:                            OLS   Adj. R-squared:                  0.000
     Method:                 Least Squares   F-statistic:                     21.05
     Date:                Wed, 17 Oct 2018   Prob (F-statistic):           4.47e-06
-    Time:                        04:35:33   Log-Likelihood:            -1.1307e+06
+    Time:                        05:34:23   Log-Likelihood:            -1.1307e+06
     No. Observations:               97839   AIC:                         2.261e+06
     Df Residuals:                   97837   BIC:                         2.261e+06
     Df Model:                           1                                         
@@ -1098,7 +1095,7 @@ for col in cols:
     Model:                            OLS   Adj. R-squared:                  0.128
     Method:                 Least Squares   F-statistic:                     1591.
     Date:                Wed, 17 Oct 2018   Prob (F-statistic):               0.00
-    Time:                        04:37:43   Log-Likelihood:            -1.9258e+05
+    Time:                        05:34:23   Log-Likelihood:            -1.9258e+05
     No. Observations:               97615   AIC:                         3.852e+05
     Df Residuals:                   97605   BIC:                         3.853e+05
     Df Model:                           9                                         
@@ -1131,7 +1128,7 @@ for col in cols:
     Model:                            OLS   Adj. R-squared:                  0.624
     Method:                 Least Squares   F-statistic:                     2074.
     Date:                Wed, 17 Oct 2018   Prob (F-statistic):               0.00
-    Time:                        04:37:44   Log-Likelihood:            -1.5153e+05
+    Time:                        05:34:24   Log-Likelihood:            -1.5153e+05
     No. Observations:               97615   AIC:                         3.032e+05
     Df Residuals:                   97536   BIC:                         3.040e+05
     Df Model:                          78                                         
@@ -1233,7 +1230,7 @@ for col in cols:
     Model:                            OLS   Adj. R-squared:                  0.068
     Method:                 Least Squares   F-statistic:                     7074.
     Date:                Wed, 17 Oct 2018   Prob (F-statistic):               0.00
-    Time:                        04:37:44   Log-Likelihood:            -1.9584e+05
+    Time:                        05:34:24   Log-Likelihood:            -1.9584e+05
     No. Observations:               97615   AIC:                         3.917e+05
     Df Residuals:                   97613   BIC:                         3.917e+05
     Df Model:                           1                                         
@@ -1258,7 +1255,7 @@ for col in cols:
     Model:                            OLS   Adj. R-squared:                  0.000
     Method:                 Least Squares   F-statistic:                     9.748
     Date:                Wed, 17 Oct 2018   Prob (F-statistic):            0.00180
-    Time:                        04:37:44   Log-Likelihood:            -1.9925e+05
+    Time:                        05:34:24   Log-Likelihood:            -1.9925e+05
     No. Observations:               97615   AIC:                         3.985e+05
     Df Residuals:                   97613   BIC:                         3.985e+05
     Df Model:                           1                                         
@@ -1285,18 +1282,451 @@ for col in cols:
 - Let's drop continuous variables which resulted in single linear models with a R-squared value <0.01 for the `walmart_log models`.
 - Let's make sure to drop 1 column for each categorical variable we end up using.
 
-Fuel_price, Unemployment, Is_Holiday are going away
+
+```python
+walmart_final = walmart_log.drop(["Fuel_Price","Unemployment","IsHoliday", "Store_9", "Dept_99","Type_B"], axis=1)
+walmart_final.columns[92:121]
+walmart_final =walmart_final.drop(walmart_final.columns[92:121],axis=1)
+walmart_final.describe()
+```
 
 
-## From here on out, do stepwise selection
 
-## drop more columns
 
-## Do a train-test-split with the final model
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-## Cross-fold validation with the final model
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-# LEVEL UP
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Weekly_Sales</th>
+      <th>Size</th>
+      <th>Temperature</th>
+      <th>CPI</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>97615.000000</td>
+      <td>97615.000000</td>
+      <td>97615.000000</td>
+      <td>97615.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>8.671603</td>
+      <td>0.000193</td>
+      <td>-0.000011</td>
+      <td>0.000335</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.863225</td>
+      <td>1.000262</td>
+      <td>0.999651</td>
+      <td>0.999782</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-4.605170</td>
+      <td>-1.611999</td>
+      <td>-3.843452</td>
+      <td>-1.958762</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>7.766504</td>
+      <td>-1.028620</td>
+      <td>-0.708759</td>
+      <td>-0.126697</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>8.948477</td>
+      <td>0.283436</td>
+      <td>0.134073</td>
+      <td>0.499521</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>9.948167</td>
+      <td>1.113495</td>
+      <td>0.868041</td>
+      <td>0.635046</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>13.448929</td>
+      <td>1.171380</td>
+      <td>1.738375</td>
+      <td>0.851771</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+## From here on out, use Feature ranking with recursive feature elimination
+
+Let's create a matrix X and y containing the predictors and target for our model. Let's use Scikit-Learn's RFE function, documentation again [here](http://scikit-learn.org/stable/modules/classes.html#module-sklearn.feature_selection).
+
+
+```python
+y = walmart_final[["Weekly_Sales"]]
+X = walmart_final.drop(["Weekly_Sales"], axis=1)
+X.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Size</th>
+      <th>Temperature</th>
+      <th>CPI</th>
+      <th>Store_1</th>
+      <th>Store_10</th>
+      <th>Store_2</th>
+      <th>Store_3</th>
+      <th>Store_4</th>
+      <th>Store_5</th>
+      <th>Store_6</th>
+      <th>...</th>
+      <th>Dept_90</th>
+      <th>Dept_91</th>
+      <th>Dept_92</th>
+      <th>Dept_93</th>
+      <th>Dept_94</th>
+      <th>Dept_95</th>
+      <th>Dept_96</th>
+      <th>Dept_97</th>
+      <th>Dept_98</th>
+      <th>Type_A</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.283436</td>
+      <td>-1.301205</td>
+      <td>0.40349</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.283436</td>
+      <td>-1.301205</td>
+      <td>0.40349</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.283436</td>
+      <td>-1.301205</td>
+      <td>0.40349</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.283436</td>
+      <td>-1.301205</td>
+      <td>0.40349</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.283436</td>
+      <td>-1.301205</td>
+      <td>0.40349</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 91 columns</p>
+</div>
+
+
+
+Let's create a for loop using `RFE` where we look at the 5, 15, 25,... up until 85 best features to be selected according to the feature ranking algorithm. Store the R-squared and the adjusted-R-squareds for all these models in a list. What do you see? No need to perform a train-test-split for now- that will be next!
+
+
+```python
+r_list = []
+adj_r_list = []
+list_n = list(range(5,86,10))
+for n in list_n: 
+    select_n = RFE(linreg, n_features_to_select = n)
+    select_n = select_n.fit(X, np.ravel(y))
+    selected_columns = X.columns[select_n.support_ ]
+    linreg.fit(X[selected_columns],y)
+    yhat = linreg.predict(X[selected_columns])
+    SS_Residual = np.sum((y-yhat)**2)
+    SS_Total = np.sum((y-np.mean(y))**2)
+    r_squared = 1 - (float(SS_Residual))/SS_Total
+    print(r_squared)
+    adjusted_r_squared = 1 - (1-r_squared)*(len(y)-1)/(len(y)-X.shape[1]-1)
+    print(adjusted_r_squared)
+r_list.append(r_squared)
+adj_r_list.append(adjusted_r_squared)
+```
+
+    Weekly_Sales    0.077963
+    dtype: float64
+    Weekly_Sales    0.077103
+    dtype: float64
+    Weekly_Sales    0.199123
+    dtype: float64
+    Weekly_Sales    0.198376
+    dtype: float64
+    Weekly_Sales    0.3477
+    dtype: float64
+    Weekly_Sales    0.347091
+    dtype: float64
+    Weekly_Sales    0.454981
+    dtype: float64
+    Weekly_Sales    0.454472
+    dtype: float64
+    Weekly_Sales    0.538593
+    dtype: float64
+    Weekly_Sales    0.538162
+    dtype: float64
+    Weekly_Sales    0.608587
+    dtype: float64
+    Weekly_Sales    0.608222
+    dtype: float64
+    Weekly_Sales    0.661651
+    dtype: float64
+    Weekly_Sales    0.661336
+    dtype: float64
+    Weekly_Sales    0.710962
+    dtype: float64
+    Weekly_Sales    0.710693
+    dtype: float64
+    Weekly_Sales    0.771544
+    dtype: float64
+    Weekly_Sales    0.771331
+    dtype: float64
+
+
+The difference between $R^2$ and adjusted $R^2$ is negligible, and seems to continue to be going up as we include more features. Remember though that we're likely overfitting when including 85 features. In order to identify this, let's rerun a similar experiment, but using a train test split!
+
+## Including a train-test-split
+
+Let's create a similar for loop to what we did before. Except, this time
+- Use a train test split of 20-80
+- Instead of looking at $R^2$ and $R^2_{adj}$, look at the MSE for train and test
+
+
+```python
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state=3)
+
+MSE_test = []
+MSE_train = []
+list_n = list(range(5,86,10))
+for n in list_n: 
+    select_n = RFE(linreg, n_features_to_select = n)
+    select_n = select_n.fit(X_train, np.ravel(y_train))
+    selected_columns = X.columns[select_n.support_ ]
+    linreg.fit(X_train[selected_columns],y_train)
+    yhat_train = linreg.predict(X_train[selected_columns])
+    yhat_test = linreg.predict(X_test[selected_columns])
+    mse_train = np.sum((y_train-yhat_train)**2)/len(y_train)
+    mse_test =np.sum((y_test-yhat_test)**2)/len(y_test)
+    print(mse_train)
+    print(mse_test)
+MSE_test.append(mse_test)
+MSE_train.append(mse_train)
+```
+
+    Weekly_Sales    3.183436
+    dtype: float64
+    Weekly_Sales    3.270942
+    dtype: float64
+    Weekly_Sales    2.761974
+    dtype: float64
+    Weekly_Sales    2.854012
+    dtype: float64
+    Weekly_Sales    2.248087
+    dtype: float64
+    Weekly_Sales    2.330478
+    dtype: float64
+    Weekly_Sales    1.879634
+    dtype: float64
+    Weekly_Sales    1.94236
+    dtype: float64
+    Weekly_Sales    1.587492
+    dtype: float64
+    Weekly_Sales    1.659824
+    dtype: float64
+    Weekly_Sales    1.345908
+    dtype: float64
+    Weekly_Sales    1.411686
+    dtype: float64
+    Weekly_Sales    1.162755
+    dtype: float64
+    Weekly_Sales    1.223241
+    dtype: float64
+    Weekly_Sales    0.992653
+    dtype: float64
+    Weekly_Sales    1.047768
+    dtype: float64
+    Weekly_Sales    0.787367
+    dtype: float64
+    Weekly_Sales    0.817389
+    dtype: float64
+
+
+What we see is that both MSE keeps improving when we add variables. It seems like a bigger model improves our performance, and the test and train performance don't really diverge. It is important to note however that is not an unusual result. The performance measures used typically will show this type of behavior. In order to really be able to balance the curse of dimensionality (which will become more important in machine learning), we need other information criteria such as AIC and BIC. You'll learn about them later! Now, let's perform cross-validation on our model with 85 predictors!
+
+## 10-fold cross validation with the final model
+
+Create a 10-fold cross-validation and store the (negative) MSEs 
+
+
+```python
+from sklearn.metrics import mean_squared_error
+from sklearn.model_selection import cross_val_score
+
+# select 85 best predictors
+
+select_85 = RFE(linreg, n_features_to_select = 85)
+select_85 = select_n.fit(X, np.ravel(y))
+selected_columns = X.columns[select_n.support_]
+
+cv_10_results = cross_val_score(linreg, X[selected_columns], y, cv=10, scoring="neg_mean_squared_error")
+
+cv_10_results
+```
+
+
+
+
+    array([-7.98705287e-01, -7.34894743e-01, -1.09719402e+00, -7.40064282e-01,
+           -8.68845883e+19, -5.69679296e-01, -1.06969762e+00, -6.17939838e-01,
+           -7.13486286e+17, -1.62585809e+00])
+
+
+
+Running our 10-fold cross-validation highlights some issues for sure! Have a look at your list of 10 MSEs. Where most MSEs are manageable, some are very high. The cure of dimensionality is already pretty clear here. The issue is that we have many (dummy) categorical variables that result in columns with many zeroes and few ones. This means that for some folds, there is a risk of ending up with columns that almost exclusively contain 0's for prediction, which might cause weird results. Looking at this, a model with less predictors might make sense again. This is where we conclude for now. It's up to you now to explore other model options! Additionally, it is encouraged to try some of the "level up" exercises below. Good luck!
+
+# Level up - Optional
 
 
 - You could argue that **throwing out negative sales figures is problematic**, because these are probably the types of observations a stakeholder would be very interested in knowing. Repeat your analysis, but now, instead of removing the rows with negative sales, replace their sales with a slightly positive value (eg. 1), so they have an existing and finite value. Does the result change?
@@ -1304,32 +1734,9 @@ Fuel_price, Unemployment, Is_Holiday are going away
 - Go back and log-transform `CPI` and `Size` before standardizing it (we did this a few lessons ago). Look at the histogram and see if there is an improvement.
 - You might have noticed we ignored `binned_markdown` throughout. Add it in the model and see how it changes the results!
 
+- Try other feature selection methods such as stepwise selection and forward selection seen in section 11.
 
 
-```python
-cols_md = walmart.columns[98:126] 
-cols_md
-```
+## Summary
 
-
-
-
-    Index(['binned_markdown_1_0-20%', 'binned_markdown_1_21-40%',
-           'binned_markdown_1_41-60%', 'binned_markdown_1_61-80%',
-           'binned_markdown_1_81-100%', 'binned_markdown_1_NaN',
-           'binned_markdown_2_0-20%', 'binned_markdown_2_21-40%',
-           'binned_markdown_2_41-60%', 'binned_markdown_2_61-80%',
-           'binned_markdown_2_81-100%', 'binned_markdown_2_NaN',
-           'binned_markdown_3_0-20%', 'binned_markdown_3_21-40%',
-           'binned_markdown_3_41-60%', 'binned_markdown_3_81-100%',
-           'binned_markdown_3_NaN', 'binned_markdown_4_0-20%',
-           'binned_markdown_4_21-40%', 'binned_markdown_4_41-60%',
-           'binned_markdown_4_61-80%', 'binned_markdown_4_81-100%',
-           'binned_markdown_4_NaN', 'binned_markdown_5_0-20%',
-           'binned_markdown_5_21-40%', 'binned_markdown_5_41-60%',
-           'binned_markdown_5_61-80%', 'binned_markdown_5_81-100%'],
-          dtype='object')
-
-
-
-### Use pandas histogram plotting to plot histograms for all the variables in the dataset
+Congratulations, you made it to the end of the last section in this module. Now it's time for a big project on multiple linear regression!
