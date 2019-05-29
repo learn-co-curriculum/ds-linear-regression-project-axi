@@ -18,7 +18,7 @@ You will be able to:
 
 To start, perform a train-test split and create an initial regression model to model the `list_price` using all of your available features.
 
-> **Note:** In order to write the model you'll have to do some tedious manipulation of your column names. Statsmodels will not allow you to have spaces, apostorphe or arithmetic symbols (+) in your column names. Preview them and refine them as you go.  
+> **Note:** In order to write the model you'll have to do some tedious manipulation of your column names. Statsmodels will not allow you to have spaces, apostrophe or arithmetic symbols (+) in your column names. Preview them and refine them as you go.  
 **If you receive an error such as "PatsyError: error tokenizing input (maybe an unclosed string?)" then you need to further preprocess your column names.**
 
 
@@ -71,7 +71,7 @@ Check whether the normality assumption holds for your model.
 
 ## Check Homoscedasticity Assumption
 
-Check whether the model's errors are indeed homoscedastic or if they violoate this principle and display heteroscedacsticity.
+Check whether the model's errors are indeed homoscedastic or if they violate this principle and display heteroscedasticity.
 
 
 ```python
