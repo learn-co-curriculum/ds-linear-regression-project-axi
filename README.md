@@ -28,7 +28,7 @@ To start, perform a train-test split and create an initial regression model to m
 
 
 ```python
-#Your code here - manipulate column names
+#Your code here - Manipulate column names
 ```
 
 
