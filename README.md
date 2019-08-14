@@ -26,20 +26,40 @@ To start, perform a train-test split and create an initial regression model to m
 #Your code here
 ```
 
+
+```python
+#Your code here - manipulate column names
+```
+
+
+```python
+#Your code here - Define the target and predictors
+```
+
+
+```python
+#Your code here - Fit the actual model
+```
+
 ## Remove the Uninfluential Features
 
 Based on the initial model, remove those features which do not appear to be statistically relevant and rerun the model.
 
 
 ```python
-#Your code here
+#Your code here - Remove features which do not appear to be statistically relevant
+```
+
+
+```python
+#Your code here - Refit the model
 ```
 
 > **Comment:** You should see that the model performance is identical. Additionally, observe that there are further features which have been identified as unimpactful. Continue to refine the model accordingly.
 
 
 ```python
-#Your code here
+#Your code here - Continue to refine the model
 ```
 
 ## Investigate Multicollinearity
@@ -48,7 +68,7 @@ There are still a lot of features in the current model! Chances are there are so
 
 
 ```python
-#Your code here
+#Your code here - Code a way to identify multicollinearity
 ```
 
 ## Perform Another Round of Feature Selection
@@ -57,7 +77,7 @@ Once again, subset your features based on your findings above. Then rerun the mo
 
 
 ```python
-#Your code here
+#Your code here - Subset features based on multicollinearity
 ```
 
 ## Check the Normality Assumption
@@ -66,7 +86,7 @@ Check whether the normality assumption holds for your model.
 
 
 ```python
-# Your code here
+# Your code here - Check that the residuals are normally distributed
 ```
 
 ## Check Homoscedasticity Assumption
@@ -75,7 +95,7 @@ Check whether the model's errors are indeed homoscedastic or if they violate thi
 
 
 ```python
-#Your code here
+#Your code here - Check that the residuals are homoscedastic
 ```
 
 > **Comment:** This displays a fairly pronounced 'funnel' shape: errors appear to increase as the list_price increases. This doesn't bode well for our model. Subsetting the data to remove outliers and confiding the model to this restricted domain may be necessary. A log transformation or something equivalent may also be appropriate.
@@ -88,7 +108,17 @@ From here, make additional refinements to your model based on the above analysis
 
 
 ```python
-#Your code here
+#Your code here - Check for outliers
+```
+
+
+```python
+#Your code here - Rerun the model with extreme outliers removed
+```
+
+
+```python
+#Your code here - Check normality and homoscedasticity assumptions
 ```
 
 ## Summary
