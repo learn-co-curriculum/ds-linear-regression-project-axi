@@ -223,6 +223,11 @@ df.head()
 
 
 ```python
+#Your code here - manipulate column names
+```
+
+
+```python
 # __SOLUTION__ 
 subs = [(' ', '_'),('.',''),("'",""),('™', ''), ('®',''),
         ('+','plus'), ('½','half'), ('-','_')
@@ -366,6 +371,11 @@ df.info()
     dtypes: float64(6), int64(97)
     memory usage: 8.5 MB
 
+
+
+```python
+#Your code here - Define the target and predictors
+```
 
 
 ```python
@@ -741,6 +751,11 @@ test.head()
 </div>
 
 
+
+
+```python
+#Your code here - Fit the actual model
+```
 
 
 ```python
@@ -1122,7 +1137,7 @@ Based on the initial model, remove those features which do not appear to be stat
 
 
 ```python
-#Your code here
+#Your code here - Remove features which do not appear to be statistically relevant
 ```
 
 
@@ -1236,6 +1251,11 @@ p_table.head()
 </div>
 
 
+
+
+```python
+#Your code here - Refit the model
+```
 
 
 ```python
@@ -1522,7 +1542,7 @@ model.summary()
 
 
 ```python
-#Your code here
+#Your code here - Continue to refine the model
 ```
 
 
@@ -1888,7 +1908,7 @@ There are still a lot of features in the current model! Chances are there are so
 
 
 ```python
-#Your code here
+#Your code here - Code a way to identify multicollinearity
 ```
 
 
@@ -1975,7 +1995,7 @@ Once again, subset your features based on your findings above. Then rerun the mo
 
 
 ```python
-#Your code here
+#Your code here - Subset features based on multicollinearity
 ```
 
 
@@ -2213,7 +2233,7 @@ Check whether the normality assumption holds for your model.
 
 
 ```python
-# Your code here
+# Your code here - Check that the residuals are normally distributed
 ```
 
 
@@ -2223,7 +2243,7 @@ fig = sm.graphics.qqplot(model.resid, dist=stats.norm, line='45', fit=True)
 ```
 
 
-![png](index_files/index_30_0.png)
+![png](index_files/index_34_0.png)
 
 
 ## Check Homoscedasticity Assumption
@@ -2232,7 +2252,7 @@ Check whether the model's errors are indeed homoscedastic or if they violate thi
 
 
 ```python
-#Your code here
+#Your code here - Check that the residuals are homoscedastic
 ```
 
 
@@ -2250,7 +2270,7 @@ plt.plot(model.predict(train[x_cols]), [0 for i in range(len(train))])
 
 
 
-![png](index_files/index_33_1.png)
+![png](index_files/index_37_1.png)
 
 
 > **Comment:** This displays a fairly pronounced 'funnel' shape: errors appear to increase as the list_price increases. This doesn't bode well for our model. Subsetting the data to remove outliers and confiding the model to this restricted domain may be necessary. A log transformation or something equivalent may also be appropriate.
@@ -2263,7 +2283,7 @@ From here, make additional refinements to your model based on the above analysis
 
 
 ```python
-#Your code here
+#Your code here - Check for outliers
 ```
 
 
@@ -2280,7 +2300,7 @@ df.list_price.hist()
 
 
 
-![png](index_files/index_38_1.png)
+![png](index_files/index_42_1.png)
 
 
 
@@ -2312,6 +2332,11 @@ for i in range(80,100):
     0.98 percentile: 359.88
     0.99 percentile: 463.5878
 
+
+
+```python
+#Your code here - Rerun the model with extreme outliers removed
+```
 
 
 ```python
@@ -2548,6 +2573,11 @@ model.summary()
 
 
 ```python
+#Your code here - Check normality and homoscedasticity assumptions
+```
+
+
+```python
 # __SOLUTION__
 # Check Normality Assumption
 ```
@@ -2560,7 +2590,7 @@ fig = sm.graphics.qqplot(model.resid, dist=stats.norm, line='45', fit=True)
 ```
 
 
-![png](index_files/index_43_0.png)
+![png](index_files/index_49_0.png)
 
 
 
@@ -2586,7 +2616,7 @@ plt.plot(model.predict(train[x_cols]), [0 for i in range(len(train))])
 
 
 
-![png](index_files/index_45_1.png)
+![png](index_files/index_51_1.png)
 
 
 
@@ -2635,7 +2665,7 @@ df.list_price.hist()
 
 
 
-![png](index_files/index_47_2.png)
+![png](index_files/index_53_2.png)
 
 
 
@@ -2867,7 +2897,7 @@ fig = sm.graphics.qqplot(model.resid, dist=stats.norm, line='45', fit=True)
 ```
 
 
-![png](index_files/index_49_0.png)
+![png](index_files/index_55_0.png)
 
 
 
@@ -2892,7 +2922,7 @@ plt.plot(model.predict(train[x_cols]), [0 for i in range(len(train))])
 
 
 
-![png](index_files/index_51_1.png)
+![png](index_files/index_57_1.png)
 
 
 
@@ -3000,7 +3030,7 @@ fig = sm.graphics.qqplot(model.resid, dist=stats.norm, line='45', fit=True)
 ```
 
 
-![png](index_files/index_57_0.png)
+![png](index_files/index_63_0.png)
 
 
 
@@ -3026,7 +3056,7 @@ plt.plot(model.predict(train[x_cols]), [0 for i in range(len(train))])
 
 
 
-![png](index_files/index_59_1.png)
+![png](index_files/index_65_1.png)
 
 
 ## Summary
