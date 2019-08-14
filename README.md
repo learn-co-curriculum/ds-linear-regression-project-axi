@@ -223,7 +223,7 @@ df.head()
 
 
 ```python
-#Your code here - manipulate column names
+#Your code here - Manipulate column names
 ```
 
 
