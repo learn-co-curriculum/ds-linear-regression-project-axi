@@ -15,7 +15,7 @@ You will be able to:
 
 # Task: Develop a LEGO Pricing Algorithm
 
-![pile of legos](images/legos.jpg)
+![pile of legos](index_files/images/legos.jpg)
 
 Photo by <a href="https://unsplash.com/@xavi_cabrera?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Xavi Cabrera</a> on <a href="/s/photos/lego?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
@@ -42,7 +42,7 @@ To load in the data, you will need to complete the following tasks:
     - The easiest method for completing this task is to use the `pd.read_sql` method ([Documentation](https://pandas.pydata.org/docs/reference/api/pandas.read_sql.html))
     - Store the pandas dataframe in a variable called `df`
 
-![Entity Relational Diagram](images/erd.png)
+![Entity Relational Diagram](index_files/images/erd.png)
 
 
 ```python
