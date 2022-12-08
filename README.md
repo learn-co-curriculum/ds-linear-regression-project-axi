@@ -374,7 +374,9 @@ ax.set_title("Distribution of LEGO Set Prices");
 ```
 
 
+    
 ![png](index_files/index_15_0.png)
+    
 
 
 ## Requirements
@@ -467,7 +469,9 @@ ax.set_title("Heatmap of Correlation Between Attributes (Including Target)");
 ```
 
 
+    
 ![png](index_files/index_21_0.png)
+    
 
 
 Based on the heatmap, which feature is most strongly correlated with the target (`listing_price`)? In other words, which feature has the strongest positive or negative correlation — the correlation with the greatest magnitude?
@@ -508,7 +512,9 @@ ax.set_title("Most Correlated Feature vs. Listing Price");
 ```
 
 
+    
 ![png](index_files/index_27_0.png)
+    
 
 
 Assuming you correctly identified `piece_count` (the number of pieces in the LEGO set) as the most correlated feature, you should have a scatter plot that shows a fairly clear linear relationship between that feature and the target. It looks like we are ready to proceed with making our baseline model without any additional transformation.
@@ -852,7 +858,9 @@ for index, col in enumerate(scatterplot_data.columns):
 ```
 
 
+    
 ![png](index_files/index_46_0.png)
+    
 
 
 ## Feature Selection Using Domain Understanding
@@ -1883,7 +1891,9 @@ ax.legend();
 ```
 
 
+    
 ![png](index_files/index_107_0.png)
+    
 
 
 Are we violating the linearity assumption?
@@ -1936,7 +1946,9 @@ sm.graphics.qqplot(residuals, dist=stats.norm, line='45', fit=True);
 ```
 
 
+    
 ![png](index_files/index_113_0.png)
+    
 
 
 Are we violating the normality assumption?
@@ -2051,7 +2063,9 @@ ax.set_ylabel("Actual - Predicted Value");
 ```
 
 
+    
 ![png](index_files/index_125_0.png)
+    
 
 
 Are we violating the homoscedasticity assumption?
